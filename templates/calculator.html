@@ -1,0 +1,32 @@
+<!-- templates/calculator.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="calculator-container">
+        <h1>Basic Calculator</h1>
+        <form method="POST">
+            <input type="text" name="num1" placeholder="First number" required autocomplete="off">
+            <input type="text" name="num2" placeholder="Second number" required autocomplete="off">
+            <select name="operation" required>
+                <option value="add">Add</option>
+                <option value="subtract">Subtract</option>
+                <option value="multiply">Multiply</option>
+                <option value="divide">Divide</option>
+                <option value="floor division">Floor Division</option>
+            </select>
+            <button type="submit">Calculate</button>
+        </form>
+    </div>
+    <div class="result-container">
+        {% if result is not none %}
+            <h2>Result: <br></h2><h1>{{ result }}</h1>
+        {% endif %}
+    </div>
+</body>
+</html>
